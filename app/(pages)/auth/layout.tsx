@@ -1,7 +1,7 @@
 import { headers, cookies } from "next/headers"
-import { SupabaseListener } from "@/components/supabase-listener"
 import { createServerComponentSupabaseClient } from "@supabase/auth-helpers-nextjs"
 import type { Database } from "@/database.types"
+import { SupabaseListener } from "@/app/features/auth"
 
 export default async function AuthLayout({ children }: { children: React.ReactNode }) {
   const supabase = createServerComponentSupabaseClient<Database>({
