@@ -2,7 +2,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { format } from "date-fns"
 import { ArrowUturnLeftIcon } from "@heroicons/react/24/solid"
-import type { Database } from "../../../database.types"
+import type { Database } from "../../../../database.types"
 
 type Blog = Database["public"]["Tables"]["blogs"]["Row"]
 

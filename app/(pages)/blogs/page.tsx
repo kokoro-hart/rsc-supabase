@@ -1,4 +1,4 @@
-import { RouterButton } from "../components/router-button"
+import { RouterButton } from "@/components/router-button"
 
 export default function BlogPage() {
   return (

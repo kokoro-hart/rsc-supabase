@@ -1,5 +1,5 @@
-import { BlogListStatic } from "../components/blogs-list-static"
-import { RefreshButton } from "../components/refresh-button"
+import { BlogListStatic } from "@/components/blogs-list-static"
+import { RefreshButton } from "@/components/refresh-button"
 
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
   return (
