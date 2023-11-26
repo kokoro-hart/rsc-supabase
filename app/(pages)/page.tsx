@@ -1,8 +1,8 @@
 import { Suspense } from "react"
-import { NotesList } from "@/components/notes-list"
 import { RefreshButton } from "@/components/refresh-button"
 import { Spinner } from "@/components/spinner"
 import { TimerCounter } from "@/components/timer-counter"
+import { NotesList } from "../features/notes"
 
 export default function Home() {
   return (
