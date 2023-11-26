@@ -1,4 +1,4 @@
-import { Auth } from "@/components/auth"
+import { Auth } from "@/app/features/auth"
 
 export default async function AuthPage() {
   return (

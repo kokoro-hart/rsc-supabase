@@ -1,22 +1,8 @@
 import Link from "next/link"
-import type { Database } from "../../database.types"
-type Blog = Database["public"]["Tables"]["blogs"]["Row"]
+import { fetchBlogsStatic } from "../api"
 
-const fetchBlogs = async () => {
-  const res = await fetch(`${process.env.url}/rest/v1/blogs?select=*`, {
-    headers: new Headers({
-      apikey: process.env.apikey as string,
-    }),
-    cache: "force-cache",
-  })
-  if (!res.ok) {
-    throw new Error("Failed to fetch data")
-  }
-  const blogs: Blog[] = await res.json()
-  return blogs
-}
 export async function BlogListStatic() {
-  const blogs = await fetchBlogs()
+  const blogs = await fetchBlogsStatic()
   return (
     <div className="p-4">
       <p className="mb-4 pb-3 text-xl font-medium underline underline-offset-4">Blogs</p>

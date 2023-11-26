@@ -1,25 +1,6 @@
 import React from "react"
-import type { Database } from "@/database.types"
 import { format } from "date-fns"
-
-type Note = Database["public"]["Tables"]["notes"]["Row"]
-
-async function fetchNotes(): Promise<Note[]> {
-  const res = await fetch(`${process.env.url}/rest/v1/notes?=select=*`, {
-    headers: new Headers({
-      apikey: process.env.apikey as string,
-    }),
-    cache: "no-store",
-  })
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch notes")
-  }
-
-  const data = await res.json()
-
-  return data
-}
+import { fetchNotes } from "../api"
 
 export async function NotesList() {
   const notes = await fetchNotes()
