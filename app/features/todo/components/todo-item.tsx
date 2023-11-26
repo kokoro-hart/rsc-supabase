@@ -1,26 +1,13 @@
 "use client"
-import Link from "next/link"
-import { useRouter } from "next/navigation"
-import { TrashIcon, PencilIcon } from "@heroicons/react/24/solid"
-import supabase from "@/utils/supabase"
-import { useStore } from "@/stores/index"
-import type { Database } from "../../database.types"
 
-type Todo = Database["public"]["Tables"]["todos"]["Row"]
+import Link from "next/link"
+import { TrashIcon, PencilIcon } from "@heroicons/react/24/solid"
+import { useMutateTodos } from "../hooks"
+import { Todo } from "../types"
 
 export function TodoItem(todo: Todo) {
-  const router = useRouter()
-  const updateTask = useStore((state) => state.updateEditedTask)
-  const resetTask = useStore((state) => state.resetEditedTask)
-  async function updateMutate(id: string, completed: boolean) {
-    await supabase.from("todos").update({ completed: completed }).eq("id", id)
-    resetTask()
-    router.refresh()
-  }
-  async function deleteMutate(id: string) {
-    await supabase.from("todos").delete().eq("id", id)
-    router.refresh()
-  }
+  const { updateTask, updateMutate, deleteMutate } = useMutateTodos()
+
   return (
     <li className="my-2">
       <input

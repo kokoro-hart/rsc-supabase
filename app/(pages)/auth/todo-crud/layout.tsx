@@ -1,6 +1,5 @@
 import { Spinner } from "@/app/components/spinner"
-import { EditTask } from "@/app/components/todo-edit"
-import { TodoList } from "@/app/components/todo-list"
+import { TodoList, EditTask } from "@/app/features/todo"
 import { Suspense } from "react"
 
 export default async function TodoLayout({ children }: { children: React.ReactNode }) {
