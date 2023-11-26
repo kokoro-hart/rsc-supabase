@@ -1,7 +1,7 @@
 import { Suspense } from "react"
-import { NewsList } from "@/components/news-list"
 import { Spinner } from "@/components/spinner"
 import { BlogList } from "@/app/features/blogs"
+import { NewsList } from "@/app/features/news"
 
 export default function StreamingServerRenderingPage() {
   return (
